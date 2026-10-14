@@ -1,0 +1,137 @@
+/* GenAI Electricity Demand Forecasting: dashboard theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b1220;
+  --bg-2: #111a2e;
+  --card: #151f36;
+  --card-border: #24314f;
+  --text: #e8eefc;
+  --muted: #93a1c1;
+  --accent: #ffb703;
+  --accent-2: #22d3ee;
+  --good: #34d399;
+  --radius: 16px;
+  --shadow: 0 8px 28px rgba(0, 0, 0, .35);
+}
+
+html, body, [class*="css"], .stApp {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+.stApp {
+  background:
+    radial-gradient(900px 500px at 90% -10%, rgba(34, 211, 238, .12), transparent 60%),
+    radial-gradient(700px 400px at -10% 0%, rgba(255, 183, 3, .10), transparent 60%),
+    var(--bg);
+}
+
+/* Layout */
+.block-container { padding-top: 2rem; padding-bottom: 4rem; max-width: 1200px; }
+header[data-testid="stHeader"] { background: transparent; }
+#MainMenu, footer { visibility: hidden; }
+
+/* Title */
+h1 {
+  font-weight: 700;
+  letter-spacing: -.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .25rem;
+}
+
+/* Section headers with accent bar */
+h3 {
+  font-weight: 600;
+  margin-top: 2rem !important;
+  padding-left: .75rem;
+  border-left: 4px solid var(--accent);
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+  background: var(--bg-2);
+  border-right: 1px solid var(--card-border);
+}
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 { border: none; padding-left: 0; color: var(--text); }
+
+/* Metric cards */
+[data-testid="stMetric"] {
+  background: linear-gradient(160deg, var(--card), #101830);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, border-color .15s ease;
+}
+[data-testid="stMetric"]:hover { transform: translateY(-2px); border-color: var(--accent-2); }
+[data-testid="stMetricLabel"] { color: var(--muted); font-weight: 500; text-transform: uppercase; font-size: .72rem; letter-spacing: .06em; }
+[data-testid="stMetricValue"] { color: var(--text); font-weight: 700; }
+
+/* Charts and figures as cards */
+[data-testid="stPlotlyChart"], [data-testid="stImage"], [data-testid="stPyplot"] {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: .75rem;
+  box-shadow: var(--shadow);
+}
+
+/* Recommendations list */
+.stMarkdown ul { list-style: none; padding-left: 0; }
+.stMarkdown ul li {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--good);
+  border-radius: 12px;
+  padding: .8rem 1rem;
+  margin-bottom: .6rem;
+  box-shadow: var(--shadow);
+  line-height: 1.5;
+}
+.stMarkdown ul li::before { content: "💡 "; }
+
+/* Expanders */
+[data-testid="stExpander"] {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+[data-testid="stExpander"] summary { font-weight: 600; }
+
+/* Buttons */
+.stButton > button {
+  background: linear-gradient(90deg, var(--accent), #ff8c00);
+  color: #1a1200;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: .55rem 1.4rem;
+  box-shadow: 0 6px 18px rgba(255, 183, 3, .3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.stButton > button:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(255, 183, 3, .4); color: #1a1200; }
+
+/* Sliders and checkbox accents */
+[data-baseweb="slider"] [role="slider"] { background: var(--accent); box-shadow: 0 0 0 4px rgba(255, 183, 3, .25); }
+
+/* Captions */
+[data-testid="stCaptionContainer"] { color: var(--muted); }
+
+/* Alerts */
+[data-testid="stAlert"] { border-radius: 12px; border: 1px solid var(--card-border); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 8px; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .block-container { padding: 1rem .75rem 3rem; }
+  h1 { font-size: 1.6rem; }
+}
